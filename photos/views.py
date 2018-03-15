@@ -7,7 +7,10 @@ from django.shortcuts import get_object_or_404
 def hello(request):
     return HttpResponse("안녕하세요!")
 
-def detail(request,pk):
+def detail(request,pk,hidden=False):#'hidden' 이라는 변수 기본 값이 False!!
+    if hidden is True:
+        # todo: 뭔가 은밀한 작업을 합시다
+        pass
     photo=get_object_or_404(Photo,pk=pk)
 
     messages=(
