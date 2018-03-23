@@ -15,6 +15,11 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="jdk" jdkName="Python 3.6 (python_version3)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="pythonexam" />
+    <orderEntry type="module" module-name="pythonexam" />
+    <orderEntry type="module" module-name="pythonexam" />
+    <orderEntry type="module" module-name="pythonexam" />
+    <orderEntry type="module" module-name="pythonexam" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
