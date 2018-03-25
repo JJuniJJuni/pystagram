@@ -6,7 +6,7 @@
     action = ""
     enctype = "multipart / form-data"
 >
-    {% csrf.token %}
+    {% csrf_token %}
     {{ form.as_p }}
     <p>
         <button type = "submit">저장</button>
