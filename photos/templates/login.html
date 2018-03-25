@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% if form.erros %}
+<p>ID나 비밀번호가 일치하지 않습니다.</p>
+{% endif %}
+
+
+<form method="post" action="{% url 'login' %}">
+    <!-- action은 데이터를 어디로 보낼지를 설정 -->
+    <!-- GET:GET 방식은 브라우저에서 서버에 주어진 리소스를
+    전달해달라고 말하기 위해 사용되는 방식이다.-->
+    <!-- POST: 브라우저의 HTTP요청 바디안에 제공되는 데이터를
+    고려한 응답을 요구하기 위해 서버로 보내는 방식이다.
+    "이봐 서버 이 데이터를 보고 이거에 맞는 데이터를 보내봐"-->
+
+{% csrf_token %}
+<input type="hidden" name="next" value=""/>
+{{ form.as_p }}
+<button type="submit">로그인</button>
+</form>
+
+{% endblock %}
