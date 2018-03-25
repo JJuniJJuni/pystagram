@@ -6,4 +6,4 @@ from .models import Photo
 class PhotoForm(forms.ModelForm):
     class Meta:
         model = Photo
-        exclude = ("filtered_image",)
+        exclude = ("filtered_image",)  # 이 파일 빼고
