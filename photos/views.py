@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Photo
 from django.shortcuts import get_object_or_404
 from .forms import PhotoForm
+from django.shortcuts import redirect
 # Create your views here.
 
 
@@ -25,7 +26,14 @@ def detail(request,pk,hidden=False):  # 'hidden' 이라는 변수 기본 값이 
 
 
 def create(request):
-    form = PhotoForm()
+    if request.method == "GET":
+        form = PhotoForm()
+    elif request.method == "POST":
+        form = PhotoForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            obj = form.save()
+            return redirect(obj)
     ctx = {
         "form": form,
     }

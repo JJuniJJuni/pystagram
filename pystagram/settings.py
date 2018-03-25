@@ -54,7 +54,7 @@ ROOT_URLCONF = 'pystagram.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,13 +119,12 @@ USE_TZ = True
 
 STATIC_URL = '/assets/'
 
-STATIC_ROOT=os.path.join(BASE_DIR, "staticfiles")
-
-STATICFILES_DIRS=(
-    os.path.join(BASE_DIR,"static"),
-    ("byebye",os.path.join(BASE_DIR,"static2"),),
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
 
 )
+STATIC_ROOT=os.path.join(BASE_DIR, "staticfiles")
+
 MEDIA_URL = '/upload_files/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')  # 두 개나 그 이상의 주어진 경로를 하나로 합쳐주는 함수
