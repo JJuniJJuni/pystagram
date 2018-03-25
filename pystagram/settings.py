@@ -129,3 +129,4 @@ MEDIA_URL = '/upload_files/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')  # 두 개나 그 이상의 주어진 경로를 하나로 합쳐주는 함수
 
+LOGIN_REDIRECT_URL = '/photos/upload/'
