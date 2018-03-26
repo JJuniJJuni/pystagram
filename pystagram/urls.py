@@ -2,6 +2,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
+from django.conf.urls import include
 from photos.views import create
 from photos.views import hello
 from photos.views import detail
@@ -32,6 +33,9 @@ urlpatterns = [
             # 이렇게 설정하지 않으면, 로그아웃 화면이 나타남!!
         }
     ),
+    url(r'^users/', include('profiles.urls')),
+    # include 함수를 이용해 users/로 시작하는 URL들은 'profiles.urls'에 있는 것들을
+    # 포함시킵니다.
 ]
 
 urlpatterns += static('/upload_files/', document_root=settings.MEDIA_ROOT)
