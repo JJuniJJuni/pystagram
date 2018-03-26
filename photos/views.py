@@ -1,9 +1,11 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Photo
 from django.shortcuts import get_object_or_404
-from .forms import PhotoForm
+from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
+from django.shortcuts import render
+from django.conf import settings
+from .forms import PhotoForm
+from .models import Photo
 # Create your views here.
 
 
@@ -25,6 +27,7 @@ def detail(request, pk, hidden=False):  # 'hidden' 이라는 변수 기본 값�
     return HttpResponse("\n".join(messages))
 
 
+@login_required
 def create(request):
     if request.method == "GET":
         # '/photo/upload'에 HTTP GET 방식으로 접근
@@ -34,7 +37,9 @@ def create(request):
         form = PhotoForm(request.POST, request.FILES)
 
         if form.is_valid():
-            obj = form.save()
+            obj = form.save(commit=False)
+            obj.user = request.user
+            obj.save()
             return redirect(obj)
     ctx = {
         "form": form,
