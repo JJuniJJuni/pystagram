@@ -7,6 +7,7 @@ from django.conf import settings
 
 class Photo(models.Model):  # 각 파일의 형식 지정
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    # 관계지을 모델이 위치한 경로를 문자열로 지정
     image = models.ImageField(upload_to="%Y/%m/%d/orig")
     filtered_image = models.ImageField(upload_to="%Y/%m/%d/filtered")
     content = models.TextField(max_length=500,blank=True, null=True)
