@@ -21,7 +21,7 @@ def detail(request, pk, hidden=False):  # 'hidden' 이라는 변수 기본 값�
     # photo 객체를 가져오고,없으면, 404 페이지 뜨게끔
     messages = (
         "<p>{pk}번 사진 보여줄게요</p>".format(pk=photo.pk),
-        "<p>주소는 {url}</p>".format(url=photo.image.url),
+        #"<p>주소는 {url}</p>".format(url=photo.image.url),
         "<p><img src={url} /></p>".format(url=photo.image.url),
     )
     return HttpResponse("\n".join(messages))
